@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class plantHealth : MonoBehaviour {
 	public float health;
+	public GameObject grass;
 	// Use this for initialization
 	void Start () {
-		
+		health = 10;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 	}
-	void be_damage(float hurt){
+	public void be_damage(float hurt){
 		health -= hurt;
 		if (health <= 0) {
+			grass.GetComponent<grasscube> ().haveplant = false;
 			Destroy (gameObject);
 		}
 	}
+
 }
