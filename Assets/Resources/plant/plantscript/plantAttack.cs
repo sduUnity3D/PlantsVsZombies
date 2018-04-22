@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class plantAttack : MonoBehaviour {
+	public Vector3 offset = new Vector3(0.3f,0f,0f);
 	private bool onAttack;
 	public LayerMask zombielayer;
 	public float attackspeed;
@@ -10,6 +11,7 @@ public class plantAttack : MonoBehaviour {
 	private float attackcooldown;
 	public int planttype;
 	private float times;
+	public GameObject bullet;
 	// Use this for initialization
 	void Start () {
 		
@@ -46,12 +48,12 @@ public class plantAttack : MonoBehaviour {
 	}
 
 	void attack(){
-		GameObject hp_bar = (GameObject)Resources.Load("zidan/zidan");  
-		Instantiate(hp_bar);  
-		hp_bar.transform.position = gameObject.transform.position;
-		hp_bar.GetComponent<Rigidbody2D>().velocity = new Vector2 (5f, 0f);
-		hp_bar.GetComponent<zidanscript> ().shootdistance = 20f;
-		hp_bar.GetComponent<zidanscript> ().speed = 5;
+		
+		Instantiate(bullet,transform.position+offset,Quaternion.identity);  
+
+		bullet.GetComponent<Rigidbody2D>().velocity = new Vector2 (5f, 0f);
+		bullet.GetComponent<zidanscript> ().shootdistance = 20f;
+		bullet.GetComponent<zidanscript> ().speed = 5;
 	}
 
 }

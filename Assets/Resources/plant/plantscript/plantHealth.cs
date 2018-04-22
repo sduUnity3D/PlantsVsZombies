@@ -7,7 +7,7 @@ public class plantHealth : MonoBehaviour {
 	public GameObject grass;
 	// Use this for initialization
 	void Start () {
-		health = 10;
+		
 	}
 	
 	// Update is called once per frame
@@ -17,7 +17,7 @@ public class plantHealth : MonoBehaviour {
 	public void be_damage(float hurt){
 		health -= hurt;
 		if (health <= 0) {
-			grass.GetComponent<grasscube> ().haveplant = false;
+			//grass.GetComponent<grasscube> ().haveplant = false;
 			Destroy (gameObject);
 		}
 	}
